@@ -1,0 +1,77 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: data-my-kafka-0
+  labels:
+    type: local
+spec:
+  capacity:
+    storage: 8Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/Users/mac/Documents/workspace/kafka-poc/kafka-pv/data-my-kafka-0"
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: data-my-kafka-1
+  labels:
+    type: local
+spec:
+  capacity:
+    storage: 8Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/Users/mac/Documents/workspace/kafka-poc/kafka-pv/data-my-kafka-1"
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: data-my-kafka-2
+  labels:
+    type: local
+spec:
+  capacity:
+    storage: 8Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/Users/mac/Documents/workspace/kafka-poc/kafka-pv/data-my-kafka-2"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: data-my-kafka-0
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 8Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: data-my-kafka-1
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 8Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: data-my-kafka-2
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 8Gi
