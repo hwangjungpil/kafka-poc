@@ -15,7 +15,7 @@ global:
   ##   - myRegistryKeySecretName
   ##
   imagePullSecrets: []
-  storageClass: ""
+  storageClass: "manual"
 
 ## @section Common parameters
 ##
@@ -194,7 +194,7 @@ numIoThreads: 8
 numNetworkThreads: 3
 ## @param numPartitions The default number of log partitions per topic
 ##
-numPartitions: 1
+numPartitions: 5
 ## @param numRecoveryThreadsPerDataDir The number of threads per data directory to be used for log recovery at startup and flushing at shutdown
 ##
 numRecoveryThreadsPerDataDir: 1
@@ -436,7 +436,7 @@ extraEnvVarsSecret: ""
 
 ## @param replicaCount Number of Kafka nodes
 ##
-replicaCount: 1
+replicaCount: 3
 ## @param minId Minimal node.id or broker.id values, nodes increment their value respectively
 ## Nodes or Brokers idncrement their ID starting at this minimal value.
 ## E.g., with `minId=100` and 3 nodes, IDs will be 100, 101, 102 for brokers 0, 1, and 2, respectively.
@@ -942,7 +942,7 @@ persistence:
   ## If defined, PVC must be created manually before volume will be bound
   ## The value is evaluated as a template
   ##
-  existingClaim: "data"
+  existingClaim: ""
   ## @param persistence.storageClass PVC Storage Class for Kafka data volume
   ## If defined, storageClassName: <storageClass>
   ## If set to "-", storageClassName: "", which disables dynamic provisioning
